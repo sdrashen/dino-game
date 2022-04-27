@@ -1,4 +1,5 @@
 const dino = document.querySelector('.dino')
+const background = document.querySelector('.background')
 let isJumping = false //Essa var trabalha a questão de ele estar pulando ou não, porque quando o botão space era clicado muitas vezes rápido para pular o dino bugava.
     //As linhas de código abaixo fazem o dino pular
 function handleKeyUp(event) {
@@ -40,5 +41,17 @@ function jump() {
         }
     }, 20)
 }
+//Aqui vamos gerar os cactus
+function createCactus() {
+    //Vamos usar JS para criar novos elementos HTML
+    const cactus = document.createElement('div')
+        //Aqui determinamos que nosso cactus comece à direita
+    let cactusPosition = 1000
+    cactus.style.left = 1000 + 'px'
+        //Aqui add a classe cactus para no css estizarmos o cactus
+    cactus.classList.add('cactus')
+        //O método appendChild add um filho. Assim podemos colocar o cactus dentro.
+    background.appendChild(cactus)
+}
+createCactus()
 document.addEventListener('keyup', handleKeyUp)
-    //Keyup: quando a tecla é pressionada, um evento de keydown é gerado. Quando a tecla é liberada, o keyup (subir) acontece.
