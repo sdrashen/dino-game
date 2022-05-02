@@ -62,6 +62,12 @@ function createCactus() {
             if (cactusPosition < -60) {
                 clearInterval(leftInterval)
                 background.removeChild(cactus) //Impede o cactus de ir embora para o infinito
+                    //cactusPosition > 0 indica que ele não saiu da tela, caso contrário seria cactusPosition < 0.
+            } else if (cactusPosition > 0 && cactusPosition < 60) {
+                //O dino tem a largura de 60px, então se cactusPosition > 0 && < 60 quer dizer que ele está ocupando o espaço do dino
+                //game over:
+                clearInterval(leftInterval)
+                document.body.innerHTML = '<h1 class="gameOver">Game Over</h1>'
             } else {
                 cactusPosition -= 10
                 cactus.style.left = cactusPosition + 'px'
