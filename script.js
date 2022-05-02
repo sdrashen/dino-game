@@ -1,6 +1,7 @@
 const dino = document.querySelector('.dino')
 const background = document.querySelector('.background')
-let isJumping = false //Essa var trabalha a questão de ele estar pulando ou não, porque quando o botão space era clicado muitas vezes rápido para pular o dino bugava.
+let isJumping = false /*Essa var trabalha a questão de ele estar pulando ou não, porque quando o botão*/
+    /*space era clicado muitas vezes rápido para pular o dino bugava.*/
 let position = 0 //Posição inicial do dinossauro, em baixo.
     //As linhas de código abaixo fazem o dino pular
 function handleKeyUp(event) {
@@ -58,11 +59,14 @@ function createCactus() {
     let leftInterval = setInterval(() => {
             if (cactusPosition < -60) {
                 clearInterval(leftInterval)
-                background.removeChild(cactus) //Impede o cactus de ir embora para o infinito
-                    //cactusPosition > 0 indica que ele não saiu da tela, caso contrário seria cactusPosition < 0.
+                background.removeChild(
+                        cactus
+                    ) /*Impede o cactus de ir embora para o infinito*/
+                    /*cactusPosition > 0 indica que ele não saiu da tela, caso contrário seria cactusPosition < 0.*/
             } else if (cactusPosition > 0 && cactusPosition < 60 && position < 60) {
-                //O dino tem a largura de 60px, então se cactusPosition > 0 && < 60 quer dizer que ele está ocupando o espaço do dino
-                // position < 60 detecta o pulo do dino. Se o cactus estiver no começinho da tela, maior do que 0 à esquerda. menor do que 60 (espaço do dino) e a posição do pulo do dino não está mairo do que o cactus, aí temos uma colisão, game over.
+                /*O dino tem a largura de 60px, então se cactusPosition > 0 && < 60 quer dizer que ele está ocupando o espaço do dino*/
+                /* position < 60 detecta o pulo do dino. Se o cactus estiver no começinho da tela, maior do que 0 à esquerda. menor do que*/
+                /*60 (espaço do dino) e a posição do pulo do dino não está mairo do que o cactus, aí temos uma colisão, game over.*/
                 //game over:
                 clearInterval(leftInterval)
                 document.body.innerHTML = '<h1 class="gameOver">Game Over</h1>'
@@ -71,8 +75,8 @@ function createCactus() {
                 cactus.style.left = cactusPosition + 'px'
             }
         }, 20)
-        //SetTimeout serve para que uma function seja executada depois de um determinado tempo
-        //Aqui a function invoca ela mesma de dentro dela. Isso é chamado RECURSIVIDADE. É como se fosse um espelho de frente para o outro
+        /*SetTimeout serve para que uma function seja executada depois de um determinado tempo*/
+        /*Aqui a function invoca ela mesma de dentro dela. Isso é chamado RECURSIVIDADE. É como se fosse um espelho de frente para o outro*/
     setTimeout(createCactus, randomTime)
 }
 createCactus()
