@@ -47,11 +47,21 @@ function createCactus() {
     const cactus = document.createElement('div')
         //Aqui determinamos que nosso cactus comece à direita
     let cactusPosition = 1000
-    cactus.style.left = 1000 + 'px'
         //Aqui add a classe cactus para no css estizarmos o cactus
     cactus.classList.add('cactus')
+    cactus.style.left = 1000 + 'px'
         //O método appendChild add um filho. Assim podemos colocar o cactus dentro.
     background.appendChild(cactus)
+
+    let leftInterval = setInterval(() => {
+        cactusPosition -= 10 //Velocidade que ele vai se mover para a esquerda
+        cactus.style.left = cactusPosition + 'px'
+
+        if (cactusPosition < -60) {
+            clearInterval(leftInterval)
+            background.removeChild(cactus) //Impede o cactus de ir embora para o infinito
+        }
+    }, 20)
 }
 createCactus()
 document.addEventListener('keyup', handleKeyUp)
