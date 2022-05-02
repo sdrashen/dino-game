@@ -47,12 +47,12 @@ function createCactus() {
     //Vamos usar JS para criar novos elementos HTML
     const cactus = document.createElement('div')
         //Aqui determinamos que nosso cactus comece à direita
-    let cactusPosition = 1000
+    let cactusPosition = 900
         //A function math.random gera números aleatórios entre 0 e 1. Essa será aleatoridade com será criado um novo cactus na tela.
     let randomTime = Math.random() * 6000
         //Aqui add a classe cactus para no css estilizarmos o cactus
     cactus.classList.add('cactus')
-    cactus.style.left = 1000 + 'px'
+    cactus.style.left = 900 + 'px'
         //O método appendChild add um filho. Assim podemos colocar o cactus dentro.
     background.appendChild(cactus)
 
